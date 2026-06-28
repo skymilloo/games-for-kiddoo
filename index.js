@@ -88,7 +88,7 @@ function verifyTicket() {
     return;
   }
 
-  if (input === "cipacantik") {
+  if (input === "KIDDO-116") {
     message.innerText = "✔ Ticket accepted. Good luck 🤍";
     document.getElementById("ticketStatus").innerText = "USED";
 
