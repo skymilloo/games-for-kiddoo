@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess Your Favorites</title>
+
+  <!-- 🌸 FONT AESTHETIC -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+<!-- =========================
+ 🌸 1. WELCOME PAGE
+========================= -->
+<section id="welcomePage" class="page active">
+
+  <div class="card">
+
+    <h1 class="title">Welcome, Kiddo! 🤍</h1>
+
+    <p>
+      I made this tiny little game just for you.<br><br>
+
+      Since you watch Thai series so often, I thought it would be fun to see just how well you know your own girlfriend. 👀<br><br>
+
+      There are 5 questions waiting for you.<br>
+      Each correct answer unlocks a little reward.<br><br>
+
+      Collect all 5 Little Rewards to unlock the mysterious Golden Gift waiting at the end. ✨<br><br>
+
+      Take your time, trust your instincts, and most importantly...<br><br>
+
+      Have fun, Kiddo! 🤍
+    </p>
+
+    <button onclick="goToTicket()">Start Game</button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+ 🎟️ 2. VIP TICKET PAGE
+========================= -->
+<section id="ticketPage" class="page">
+
+  <div class="card ticket-card">
+
+    <h2>VIP ENTRY PASS</h2>
+    <p>Guess Your Favorites</p>
+
+    <div class="info">
+      <p>Player: Kiddo 🤍</p>
+      <p>Ticket ID: Eir-001</p>
+      <p>Status: <span id="ticketStatus">UNUSED</span></p>
+    </div>
+
+    <hr class="line">
+
+    <p>Enter Ticket Code</p>
+
+    <input type="text" id="ticketInput" placeholder="Enter ticket code...">
+
+    <button onclick="verifyTicket()">Verify</button>
+
+    <p id="ticketMessage"></p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+ 🎮 3. GAME PAGE (5 QUESTIONS)
+========================= -->
+<section id="gamePage" class="page">
+
+  <!-- 📊 TOP STATUS -->
+  <div class="top-bar">
+    <div class="reward-tracker">
+      <p>Little Rewards</p>
+      <p id="rewardProgress">□□□□□</p>
+    </div>
+
+    <div class="golden-status">
+
+<div id="goldenGift">
+
+🎁
+
+</div>
+
+<p>Golden Gift</p>
+
+<span id="goldenStatus">
+🔒 Locked
+</span>
+
+</div>
+
+  </div>
+
+
+  <!-- 📦 QUESTION CARD -->
+  <div class="card game-card">
+
+    <h2 id="questionNumber">Question 1</h2>
+
+    <!-- 📸 IMAGE (pakai emoji dulu, nanti diganti foto) -->
+    <div class="image-box">
+  <img id="questionImage" />
+</div>
+
+    <!-- 💡 CLUE -->
+    <div class="clue-box" onclick="showClue()">
+
+    💡 Clue
+
+</div>
+
+<p id="clueText"> </p>
+
+    <!-- 🎯 OPTIONS -->
+    <div class="answer-box">
+
+  <input type="text" id="answerInput" placeholder="Type your answer..." />
+
+  <button onclick="submitAnswer()">Submit</button>
+
+</div>
+
+    <!-- 💬 FEEDBACK -->
+    <p id="feedbackText"></p>
+    <!-- 🎁 GIFT BOX -->
+<div id="giftSection" style="display:none; margin-top:20px; text-align:center;">
+
+  <div id="giftBoxReward" onclick="openGift()">
+    📦
+    <p style="font-size:12px;">Tap to Open</p>
+  </div>
+
+  <p id="giftResult"></p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+ 📦 4. GAME RESULT (FAIL / PARTIAL)
+========================= -->
+<section id="resultPage" class="page">
+
+  <div class="card">
+
+    <h2>Game Finished! 🤍</h2>
+
+    <p id="resultText"></p>
+
+    <p>
+      Ticket Status: <b>USED</b><br><br>
+
+      This ticket has expired.<br>
+      Want another chance?<br>
+      Ask the Game Master for a new ticket. 🎟🤍
+    </p>
+
+    <button onclick="exitGame()">Exit Game</button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+ 🏆 5. WIN PAGE (5/5 CORRECT)
+========================= -->
+<section id="winPage" class="page">
+
+  <div class="card">
+
+    <h2>Congratulations! 🎉</h2>
+
+    <p>You collected all 5 Little Rewards!</p>
+
+    <p>Golden Gift 🔒</p>
+
+    <div id="goldenAnimation">
+
+🔒
+
+</div>
+
+<p id="goldenText"></p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+ 🎁 6. HUG VOUCHER PAGE
+========================= -->
+<section id="voucherPage" class="page">
+
+  <div class="voucher-card">
+
+    <h2>✨ LIMITED EDITION ✨</h2>
+    <h1>HUG VOUCHER</h1>
+
+    <p>Unlimited Hugs 🤍</p>
+
+    <hr class="dashed">
+
+    <p>Owner: Kiddo</p>
+    <p>Status: Not Redeemed</p>
+    <p>Redeem: When We Finally Meet</p>
+    <p>Valid Until: Forever ♾</p>
+
+    <br>
+
+    <p class="message">
+      Congratulations! You unlocked the Golden Gift! 🤍<br><br>
+
+      This voucher gives you unlimited hugs from me.<br><br>
+
+      Distance may keep us apart today, but one day, this voucher will finally be redeemed... and I'll make sure every hug you've been waiting for is worth it. 🤍<br><br>
+
+      I promise I'll keep this reward safe for you. 🫂✨
+    </p>
+
+    <button onclick="goFinal()">Keep It Safe 🤍</button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+🌙 FINAL PAGE
+========================= -->
+<section id="finalPage" class="page">
+
+    <div class="night-bg"></div>
+
+    <div class="letter-card">
+
+        <div class="letter-header">
+            ✉️
+        </div>
+
+        <h2>A Little Letter For Kiddoo🤍</h2>
+
+        <div class="letter-line"></div>
+
+        <p class="letter-text">
+
+            Thank you for playing my little game.
+            <br><br>
+
+            I hope it made you smile,
+            even just a little.
+
+            <br><br>
+
+            See you again
+            when you receive
+            your next ticket.
+
+            <br><br>
+
+        </p>
+
+        <div class="letter-line"></div>
+
+        <div class="ticket-card-final">
+
+            <div class="ticket-title">
+
+                🎟 Ticket Status
+
+            </div>
+
+            <div class="ticket-used">
+
+                USED
+
+            </div>
+
+        </div>
+
+        <p class="waiting-text">
+
+
+        </p>
+
+        <p class="signature">
+
+            — e
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+ SCRIPT
+========================= -->
+<script src="js/index.js"></script>
+
+</body>
+</html>
