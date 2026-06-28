@@ -11,7 +11,7 @@ let ticketUsed = false;
 // =========================
 const questions = [
   {
-    image: "image/charlotte.jpg",
+    image: "charlotte.jpg",
     clue: "tebak aja dulu",
     options: {
       A: "Actor A",
@@ -21,7 +21,7 @@ const questions = [
     correct: "charlotte"
   },
   {
-    image: "image/kao.jpg",
+    image: "kao.jpg",
     clue: "series nya gamon sm ex",
     options: {
       A: "Actor D",
@@ -31,7 +31,7 @@ const questions = [
     correct: "kao"
   },
   {
-    image: "image/emi.jpg",
+    image: "emi.jpg",
     clue: "ga sanggup kasih clue",
     options: {
       A: "Actor G",
@@ -41,7 +41,7 @@ const questions = [
     correct: "emi"
   },
   {
-    image: "image/viewjune.jpg",
+    image: "viewjune.jpg",
     clue: "gmmtv.",
     options: {
       A: "Actor J",
@@ -51,7 +51,7 @@ const questions = [
     correct: "viewjune"
   },
   {
-    image: "image/shelly.jpg",
+    image: "shelly.jpg",
     clue: "kayak nya couple real (satu aja)",
     options: {
       A: "Actor M",
